@@ -9,6 +9,7 @@
     <Page
         id="page"
         title="{i18n>title}"
+        class="fullPageBackground smallForm"
     >
         <content>
             <SearchField
@@ -21,12 +22,13 @@
             <Panel
                 expandable="false"
                 headerText="Basic Details"
-                class="sapUiSmallMarginBottom sapUiSmallMarginBegin sapUiSmallMarginTop sapUiMediumMarginEnd"
+                class="sapUiSmallMarginBottom sapUiSmallMarginBegin sapUiSmallMarginTop sapUiMediumMarginEnd colorBox"
+                width="auto"
             >
                 <content>
                     <VBox
                         width="40%"
-                        class="sapUiMediumMarginBegin"
+                        class="sapUiMediumMarginBegin sapUiSmallMarginBottom sapUiSmallMarginTop"
                     >
                     <Label
                             required="true"
@@ -53,7 +55,7 @@
                                 />
                             </items>
                         </Select>
-                        <Label text="Mobile Number" required="true"/>
+                        <Label text="Mobile Number" required="true" class="sapUiTinyMarginBottom sapUiTinyMarginTop" />
                         <FlexBox
                             width="40%"
                             justifyContent="Start"
@@ -64,6 +66,9 @@
                                 showSecondaryValues="true"
                                 items="{ path: '/CountryCodesSet', sorter: { path: 'CountryCode' } }"
                                 filterSecondaryValues="true"
+                                class="smallCombo"
+
+
                             >
                                 <core:ListItem
                                     key="{CountryCode}"
@@ -79,21 +84,21 @@
                             />
                         </FlexBox>
 
-                        <Label text="First Name" />
+                        <Label text="First Name" class="sapUiTinyMarginTop" />
                         <Input
                             width="40%"
                             id="firstName"
                             value="{custModel>/FirstName}"
                         />
 
-                        <Label text="Last Name" />
+                        <Label text="Last Name" class="sapUiTinyMarginTop" />
                         <Input
                             width="40%"
                             id="lastName"
                             value="{custModel>/LastName}"
                         />
 
-                        <Label text="Email" />
+                        <Label text="Email" class="sapUiTinyMarginTop" />
                         <Input
                             width="40%"
                             id="email"
@@ -101,7 +106,7 @@
                             value="{custModel>/Email}"
                         />
 
-                        <Label text="Date of Birth" />
+                        <Label text="Date of Birth" class="sapUiTinyMarginTop"/>
                         <!-- <DatePicker
                             displayFormat="dd MMMM yyyy"
   valueFormat="yyyy-MM-dd"
@@ -122,15 +127,16 @@
     }
   }"
                         />
-                         <Label  text="TRN Number"/>
-  <Input value="{custModel>/TrnNumber}" class="inputStyle customInputHeight sapUiSmallMarginBottom" maxlength="30"/>
-                        <Label text="Nationality" />
+                         <Label  text="TRN Number" class="sapUiTinyMarginTop"/>
+  <Input value="{custModel>/TrnNumber}" class="customInputHeight" maxlength="30" width="40%"/>
+                        <Label text="Nationality" class="sapUiTinyMarginTop" />
 
                             <ComboBox width="40%"
                                 showSecondaryValues="true"
                                 filterSecondaryValues="true"
                                 selectedKey="{custModel>/Nationality}"
                                 items="{ path: '/CountryCodesSet', sorter: { path: 'Country' } }"
+                                class="trnSmallWidth"
                             >
                                 <core:ListItem
                                     key="{Country}"
@@ -139,7 +145,7 @@
                                 />
                             </ComboBox>
 
-                            <Label text="Country of Residence" />
+                            <Label text="Country of Residence" class="sapUiTinyMarginTop" />
 
                             <ComboBox width="40%"
                                 showSecondaryValues="true"
@@ -160,7 +166,7 @@
             </Panel>
             <Panel
                 expandable="true"
-                class="sapUiSmallMarginBottom sapUiSmallMarginBegin sapUiSmallMarginTop sapUiMediumMarginEnd"
+                class="sapUiSmallMarginBottom sapUiSmallMarginBegin sapUiSmallMarginTop sapUiMediumMarginEnd colorBox"
             >
                 <headerToolbar>
                     <OverflowToolbar style="Clear">
@@ -179,8 +185,8 @@
                             width="30%"
                             class="sapUiMediumMarginBegin"
                         >
-                            <Label text="Address Type" />
-                            <Select id="addHomeType">
+                            <Label text="Address Type" class="sapUiTinyMarginTop" />
+                            <Select id="addHomeType" width="50%">
                                 <items>
                                     <core:Item
                                         key="0"
@@ -192,20 +198,21 @@
                                     />
                                 </items>
                             </Select>
-                            <Label text="Address Line 1" />
-                            <Input value="{custModel>/HomeAddressLine1}" />
-                            <Label text="Address Line 2" />
-                            <Input value="{custModel>/HomeAddressLine2}" />
-                            <Label text="Street / PO Box" />
-                            <Input value="{custModel>/HomeStreet}" />
-                            <Label text="City" />
-                            <Input value="{custModel>/HomeCity}" />
-                            <Label text="Country" />
+                            <Label text="Address Line 1" class="sapUiTinyMarginTop" />
+                            <Input value="{custModel>/HomeAddressLine1}" width="50%" />
+                            <Label text="Address Line 2"  class="sapUiTinyMarginTop"/>
+                            <Input value="{custModel>/HomeAddressLine2}" width="50%"/>
+                            <Label text="Street / PO Box" class="sapUiTinyMarginTop" />
+                            <Input value="{custModel>/HomeStreet}" width="50%" />
+                            <Label text="City"  class="sapUiTinyMarginTop"/>
+                            <Input value="{custModel>/HomeCity}" width="50%"  />
+                            <Label text="Country" class="sapUiTinyMarginTop" />
 
                             <ComboBox
                                 showSecondaryValues="true"
                                 filterSecondaryValues="true"
                                 selectedKey="{custModel>/HomeCountry}"
+                                width="50%"
                                 items="{ path: '/CountryCodesSet', sorter: { path: 'Country' } }"
                             >
                                 <core:ListItem
@@ -221,7 +228,7 @@
                             width="30%"
                             class="sapUiMediumMarginBeginEnd"
                         >
-                            <Label text="Address Type" />
+                            <Label text="Address Type"  class="sapUiTinyMarginTop"/>
                             <Select id="addWorkType">
                                 <items>
                                     <core:Item
@@ -234,7 +241,7 @@
                                     />
                                 </items>
                             </Select>
-                            <Label text="Address Line 1" />
+                            <Label text="Address Line 1" class="sapUiTinyMarginTop"/>
                             <Input value="{custModel>/OfficeAddressLine1}" />
                             <Label text="Address Line 2" />
                             <Input value="{custModel>/OfficeAddressLine2}" />
